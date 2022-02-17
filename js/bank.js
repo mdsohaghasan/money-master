@@ -40,3 +40,38 @@ function amount(inputId) {
     amountField.value = '';
     return amountNumber;
 }
+
+// savings..
+
+
+// total income
+var incomeData = amount('income');
+var totalIncome = parseFloat(incomeData)
+console.log(totalIncome)
+
+// saving input field 
+function saving(inputId) {
+    var savingField = document.getElementById(inputId);
+    var saveNumber = savingField.value;
+    amountField.value = '';
+    return saveNumber;
+}
+var savingInput = saving('save');
+var savingpearse = parseFloat(savingInput)
+console.log(savingpearse);
+
+/// save button  
+document.getElementById('saveBtn').addEventListener('click', function () {
+    var savingResult = (totalIncome / 100 * savingpearse)
+    var setTotalSaving = document.getElementById('Saving');
+    setTotalSaving.innerText = savingResult;
+    //validetion
+    if (totalIncome > savingpearse && totalIncome > 0) {
+        var setTotalBalance = document.getElementById('Remmaning');
+        setTotalBalance.innerText = totalBalance;
+    } else {
+        var errorMsgAleart = document.getElementById('errorMsg')
+        errorMsgAleart.innerText = 'your savings not more than your balance';
+        return totalBalance;
+    }
+});
